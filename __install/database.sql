@@ -38,6 +38,7 @@ create table RESERVA (
 	tipo_vuelo varchar(40),
 	costo int,
 	costo_extra int,
+	metodo_pago varchar(30),
 	email varchar(80),
 	telefono varchar(40),
 	domicilio varchar(120),
