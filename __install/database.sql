@@ -49,3 +49,9 @@ create table OTROS_PASAJEROS (
 	folio_reserva int,
 	nombre varchar(80)
 );
+
+
+create table ADMINS (
+	username varchar(30),
+	password varchar(30)
+);
