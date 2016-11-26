@@ -2,11 +2,8 @@
 <html>
 <head>
 	<title>Selecciona tu asiento</title>
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/asientos.css">
-	<script src="js/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="js/asientos.js"></script>
+	<?php include("php/commonImports.php"); ?>
 	<script type="text/javascript">
 		var n = 3;
 	</script>

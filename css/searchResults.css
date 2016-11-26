@@ -1,0 +1,36 @@
+#searchResults {
+	outline: solid 1px black;
+	margin-top: 20px;
+}
+
+.flyName {
+	font-size: 16pt;
+	text-align: center;
+	border-bottom:solid 1px gray;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.flyItem {
+	font-size: 14pt;
+}
+
+.flyEscala {
+	padding-left:10px;
+	padding-top:10px;
+	font-weight: bolder;
+}
+
+.flyCost {
+	padding-left: 25px;
+}
+
+.otherBilling {
+	font-size: 15pt;
+}
+
+.billings {
+	padding-left: 2px;
+	margin: 15px;
+	font-weight: bold;
+}

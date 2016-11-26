@@ -1,4 +1,3 @@
 <?php 
-	include("DB.php");
-	$db = new DB();
+	include("commonImports.php");
 ?>
