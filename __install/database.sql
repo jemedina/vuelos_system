@@ -24,6 +24,14 @@ create table VUELOS_DISPONIBLES (
     FOREIGN KEY(id_vuelo_especifico) REFERENCES VUELOS_ESPECIFICOS(id)
 );
 
+create table CLIENTES (
+	id int primary key not null auto_increment,
+	email varchar(80),
+	telefono varchar(40),
+	domicilio varchar(120),
+	titular varchar(70)
+);
+
 create table DETALLE_ASIENTOS (
 	id_vuelo_disponible int,
 	id_titular int,
@@ -33,13 +41,7 @@ create table DETALLE_ASIENTOS (
     FOREIGN KEY(id_titular) REFERENCES CLIENTES(id)
 );
 
-create table CLIENTES (
-	id int primary key not null auto_increment,
-	email varchar(80),
-	telefono varchar(40),
-	domicilio varchar(120),
-	titular varchar(70)
-);
+
 
 create table RESERVA (
 	folio int primary key not null auto_increment,
@@ -57,8 +59,7 @@ create table RESERVA (
 create table OTROS_PASAJEROS (
 	folio_reserva int,
 	nombre varchar(80),
-    FOREIGN KEY(folio_reserva) REFERENCES RESERVA(folio),
-
+    FOREIGN KEY(folio_reserva) REFERENCES RESERVA(folio)
 );
 
 
