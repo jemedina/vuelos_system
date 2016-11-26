@@ -26,9 +26,11 @@ create table VUELOS_DISPONIBLES (
 
 create table DETALLE_ASIENTOS (
 	id_vuelo_disponible int,
+	id_titular int,
 	numero int,
 	estado boolean,
-    FOREIGN KEY(id_vuelo_disponible) REFERENCES VUELOS_DISPONIBLES(id)
+    FOREIGN KEY(id_vuelo_disponible) REFERENCES VUELOS_DISPONIBLES(id),
+    FOREIGN KEY(id_titular) REFERENCES CLIENTES(id)
 );
 
 create table CLIENTES (
