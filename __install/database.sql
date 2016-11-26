@@ -56,7 +56,9 @@ create table RESERVA (
 
 create table OTROS_PASAJEROS (
 	folio_reserva int,
-	nombre varchar(80)
+	nombre varchar(80),
+    FOREIGN KEY(folio_reserva) REFERENCES RESERVA(folio),
+
 );
 
 
