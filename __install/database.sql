@@ -69,3 +69,42 @@ create table ADMINS (
 );
 
 INSERT INTO ADMINS (username,password) VALUES ('admin','admin');
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Aguascalientes");--1
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Guadalajara");--2
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Dubai");--3
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Madrid");--4
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("New York");--5
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Paris");--6
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Toronto");--7
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Las Vegas");--8
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Mexico DF");--9
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Sydney");--10
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Hong Kong");--11
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Venecia");--12
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Tokyo");--13
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Roma");--14
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Buenos Aires");--15
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Cairo");--16
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Cancun");--17
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Rio de Janeiro");--18
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Londres");--19
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Barcelona");--20
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Los Angeles CA");--21
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("San Francisco");--22
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Amsterdam");--23
+INSERT INTO AEREOPUERTOS (nombre) VALUES ("Vaticano");--24
+
+
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (1, 6, 9);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (4, 9, null);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (20, 23, null);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (7, 10, 21);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (24, 19, null);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (1, 17, 9);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (19, 18, 9);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (20, 22, 8);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (22, 13, null);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (13, 11, null);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (9, 10, null);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (5, 6, null);
+INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (9, 5, 21);
