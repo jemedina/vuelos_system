@@ -1,0 +1,25 @@
+.barra{
+  width:100%;
+  margin-left:40px;
+  margin-top:18px;
+  height:30px;
+}
+
+.recuadro{
+  border-radius:15px 16px 16px 16px;
+  border:solid blue 2px;
+  background-color:#1d77e9;
+  margin-top:30px;
+}
+
+.texto{
+  font-family:Arial;
+  color:white;
+  font-size:30px;
+  margin-top:10px;
+  margin-left:40%;
+}
+
+.altura{
+  height:280px;
+}

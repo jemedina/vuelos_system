@@ -1,0 +1,26 @@
+.recuadro{
+  border:solid 2px black;
+  background-color:#234f8e;
+  margin-top:30px;
+}
+
+.texto{
+  color:white;
+  text-align:justify;
+}
+
+.opcionesLaterales{
+  margin-left:20%;
+}
+
+.recuadroDerecho{
+  margin-left:5px;
+  width:30%;
+  margin-top:20px;
+}
+
+.textoLateral{
+  font-size:16px;
+  color:white;
+  margin-top:35px;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C:\Users\Edgardo\Documents\Bootstrap\registrarPasajero\Formulario_Registro_titular</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/pasajero.css">
+</head>
+
+<body>
+    <div>
+        <div>
+            <div class="container recuadro">
+                <form name="pasajerosComunes" method="post" action="#">
+                   <input type="hidden" value="1" name="numParams">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4 lead texto">
+                                    <label><strong>Nombre Completo</strong></label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="pasajero1">
+                                    <!--$arr[]=$_POST["pasajero".$i];-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 lead textoLateral">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input value="500" type="checkbox"><strong>Maleta Extra</strong></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 lead textoLateral">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input value="1000" type="checkbox"><strong>Prioridad de abordaje</strong></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 lead textoLateral">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input value="1500" type="checkbox"><strong>Equipo deportivo o Instrumentos musicales</strong></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

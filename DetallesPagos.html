@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C:\Users\Jesus\Documents\Boostrap Studio\DetallesPago</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/user.css">
+    <link rel="stylesheet" href="css/bootstrap/fonts/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-4 col-md-offset-1 col-sm-5 col-xs-12">
+            <div class="panel panel-default credit-card-box">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="panel-title-text">Detalles de Pago</span><img class="img-responsive panel-title-image" src="assets/img/accepted_cards.png"></h3></div>
+                <div class="panel-body">
+                    <form name="formaPago" id="payment-form" method="post" action="#">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="cardNumber">Número de tarjeta de crédito</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="tel" required="" placeholder="Ingrese no. de tarjeta de crédito" id="cardNumber">
+                                        <div class="input-group-addon"><span><span class="fa fa-credit-card"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7">
+                                <div class="form-group">
+                                    <label class="control-label" for="cardExpiry"><span class="hidden-xs">Fecha de expiración</span><span class="visible-xs-inline">EXP </span></label>
+                                    <input class="form-control" type="tel" required="" placeholder="MM / AA" id="cardExpiry">
+                                </div>
+                            </div>
+                            <div class="col-xs-5 pull-right">
+                                <div class="form-group">
+                                    <label class="control-label" for="cardCVC">cv code</label>
+                                    <input id="cvc" class="form-control" type="tel" required="" placeholder="CVC" id="cardCVC">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="couponCode">Código de descuento</label>
+                                    <input class="form-control" type="text" id="couponCode">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button class="btn btn-success btn-block btn-lg" type="submit">Pagar </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-7 col-xs-12">
+            <div>
+                <div>
+                    <p class="text-center lead"><strong>viernes, 25 Noviembre 2016</strong></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label id="horaPartidaSencillo" for="cardExpiry" class="lead">17:40 hrs</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input id="origenSencillo" class="input-lg lead" type="text" value="Aguascalientes" readonly="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label id="horaLLegadaSencillo" for="cardExpiry" class="lead">18:30 hrs</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input id="destinoSencillo" class="input-lg lead" type="text" value="Guadalajara" readonly="">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <div>
+                    <p class="text-center lead"><strong>viernes, 9 Diciembre 2016</strong></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label id="horaPartidaRedondo" for="cardExpiry" class="lead">20:00 hrs</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input id="origenRedondo" class="input-lg lead" type="text" value="Guadalajara" readonly="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label id="horaLLegadaRedondo" for="cardExpiry" class="lead">02:30 hrs</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input id="destinoRedondo" class="input-lg lead" type="text" value="Aguascalientes" readonly="">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <label for="cardExpiry" class="lead">Costo x Pasajero</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input id="costoxPasajero" class="input-lg lead" type="text" value="1900" readonly="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <label for="cardExpiry" class="lead">Total: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span>$ </span></div>
+                            <input id="total" type="text" value="24700" readonly="" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
