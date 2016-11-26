@@ -1,0 +1,15 @@
+body,html {
+	margin: 0;
+	background: rgb(50,50,50);
+}
+#mainForm {
+	width: 30%;
+	margin-left: 35%;
+	background: white;
+	margin-top: 100px;
+	padding: 30px;
+	padding-bottom:50px;
+	border-radius: 5px;
+	background: rgb(250,250,250);
+	box-shadow: 4px 4px 8px black;
+}
