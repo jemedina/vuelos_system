@@ -67,3 +67,5 @@ create table ADMINS (
 	username varchar(30),
 	password varchar(30)
 );
+
+INSERT INTO ADMINS (username,password) VALUES ('admin','admin');
