@@ -1,3 +1,12 @@
+<?php 
+	include("php/DB.php");
+	$db = new DB();
+	$SQL_ALL_AIRPORTS = "SELECT * FROM AEREOPUERTOS";
+	$airports = $db->query($SQL_ALL_AIRPORTS);
+	while($airport = mysqli_fetch_array($airports)) {
+		$airportsArray[] = $airport;
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,6 +82,7 @@
 			    </div>
 			</article>
 			<article class="col2">
+				<form method="post" action="searchResults.php">
 					<div class="tabs2">
 							<ul class="nav">
 								<li class="selected"><a>Vuelo</a></li>
@@ -88,43 +98,49 @@
 												</div>
 											</div>
 											<div class="pad">
-												<div class="wrapper under">
+												<div class="under">
 													<div>
 														<label for="Origen" class="">Origen</label>
 														<br>
-															<select class="input1" id="origen">
-															    <option>ori1</option>
-															    <option>ori2</option>
+															<select class="input1" required name="origen" id="origen">
+															<?php 
+																for($i = 0 ; $i < count($airportsArray); $i++) {
+																	echo "<option value='".$airportsArray[$i]["id"]."'>".$airportsArray[$i]["nombre"]."</option>";
+																}		
+															?>
 															</select>
 														<br>
-														<label for="Origen" class="">Destino</label>
+														<label for="Origen" class="" >Destino</label>
                                                         <br>
-                                                            <select class="input1" id="origen">
-                                                                <option>des1</option>
-                                                                <option>des2</option>
+                                                            <select class="input1" required name="destino" id="origen">
+                                                       		<?php 
+																for($i = 0 ; $i < count($airportsArray); $i++) {
+																	echo "<option value='".$airportsArray[$i]["id"]."'>".$airportsArray[$i]["nombre"]."</option>";
+																}		
+															?>
                                                             </select>
                                                         <br>
 													</div>
 												</div>
 												<div class="wrapper under">
 													<label for="partida">partida</label>
-													<input type="date" id="partida">
+													<input type="date" required name="partida" id="partida">
 													<br>
 													<br>
 													<label for="venida">venida</label>
-													<input type="date" id="venida">
+													<input type="date" required name="llegada" id="venida">
 												</div>
 												<div class="wrapper pad_bot1">
 													<label class="left">Pasajeros</label>
 													<div class="cols marg_right1">
 														<div class="row">
-															<input type="number" class="input" value="1"  onblur="if(this.value=='') this.value='1'" onFocus="if(this.value =='1' ) this.value=''">
+															<input type="number" required name="num_pasajeros" class="input" value="1"  onblur="if(this.value=='') this.value='1'" onFocus="if(this.value =='1' ) this.value=''">
 														</div>
 														
 													</div>
 													<div class="cols">
 														<div class="select1"><label for="clase" class="left">Clase</label>
-														<select name="clase">
+														<select name="clase" required>
 														    <option>Turista</option>
 														    <option>Premier</option>
 														</select>
@@ -143,6 +159,7 @@
 						</div>
 					</article>
 				</div>
+				</form>
 			</section>
 			<!--content end-->
 			<!--footer -->

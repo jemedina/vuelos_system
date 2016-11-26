@@ -1,3 +1,22 @@
+<?php 
+	//Recolectar parametros de busqueda
+	if(!isset($_POST["origen"]) || !isset($_POST["destino"]) || !isset($_POST["partida"]) || !isset($_POST["llegada"]) || !isset($_POST["num_pasajeros"]) || !isset($_POST["clase"]))
+	{
+		header("Location: ../index?error=1");
+	}
+	$origen = $_POST["origen"];
+	$destino = $_POST["destino"];
+	$partida = $_POST["partida"];
+	$llegada = $_POST["llegada"];
+	$num_pasajeros = $_POST["num_pasajeros"];
+	$clase = $_POST["clase"];
+	/*
+SELECT * FROM VUELOS_DISPONIBLES JOIN VUELOS_ESPECIFICOS WHERE VUELOS_ESPECIFICOS.origen = 4 AND VUELOS_ESPECIFICOS.destino=9 AND isNull(VUELOS_ESPECIFICOS.escala);
+
+	*/
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
