@@ -1,10 +1,13 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('error_reporting', E_ALL);
 require('fpdf/fpdf.php');
 $pdf=new FPDF();
     $pdf->AddPage();
 $servidor="localhost";
-    $usuario="root";
-    $cont="";
+    $usuario="eduardo";
+    $cont="holamundo";
     $bd="VUELOS_DB";
     
     $folio=$_POST['folio'];
