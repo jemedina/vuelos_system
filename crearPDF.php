@@ -49,11 +49,11 @@ if ($fila = $resp->fetch_row()) {
     }
     ##echo "<br>Contraseña: ".$fila[1];
     $costo=$fila[4]+$fila[5];
-    $texto="Folio: ".$folio."\nCliente: ".$fila[7]."<br>Numero de pasajeros: ".$fila[2]."<br>tipo de vuelo: ".$fila[3]."<br>Total: ".$costo."<br>Metodo de pago: ".$fila[6]."<br>Origen: ".$origen."<br>destino: ".$destino."<br>escala: ".$escala."<br>Hora salida: ".$hora_s."<br>Hora LLegada: ".$hora_v."<br>Total: ".$costo;
+    $texto="Folio: ".$folio."\nCliente: ".$fila[7]."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscala: ".$escala."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nTotal: ".$costo;
     
  
     $pdf->SetFont('Arial','B',16);
-    $pdf->Cell(50,10,'Información del usuario',1,1,'L');
+    $pdf->Cell(50,10,'Datos del Vuelo',1,1,'L');
  
     $pdf->Cell(50,5,'salto de linea',1,1);
  
