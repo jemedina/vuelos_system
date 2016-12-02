@@ -94,9 +94,9 @@
 											<div class="radio">
 												<div class="wrapper">
 													 <span class="left">Viaje redondo</span>
-													 <input type="radio" name="redondo" value="redondo">
+													 <input type="radio" name="tipoVuelo" value="redondo">
 													 <span class="left">Viaje Sencillo</span>
-													 <input type="radio" name="redondo" value="sencillo">
+													 <input type="radio" name="tipoVuelo" value="sencillo">
 												</div>
 											</div>
 											<div class="pad">

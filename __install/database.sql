@@ -21,6 +21,8 @@ create table VUELOS_DISPONIBLES (
 	id_vuelo_especifico int,
 	hora_salida time,
 	hore_llegada time,
+	fecha_salida date,
+	fecha_llegada date,
     FOREIGN KEY(id_vuelo_especifico) REFERENCES VUELOS_ESPECIFICOS(id)
 );
 
@@ -109,16 +111,17 @@ INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (9, 10, null);
 INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (5, 6, null);
 INSERT INTO VUELOS_ESPECIFICOS (origen, destino, escala) VALUES (9, 5, 21);
 
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (1,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (2,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (3,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (4,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (5,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (6,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (7,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (8,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (9,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (10,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (11,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (12,sysdate(),sysdate());
-INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada) VALUES (13,sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (1,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (2,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (3,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (4,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (5,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (6,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (7,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (8,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (9,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (10,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (11,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (12,sysdate(),sysdate(),sysdate());
+INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha) VALUES (13,sysdate(),sysdate(),sysdate());
+
