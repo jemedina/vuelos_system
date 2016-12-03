@@ -1,3 +1,35 @@
+<?php 
+$numPasajeros=$POST["numPasajeros"]; 
+$costoBase=$POST["costoBase"];
+$costoExtra=$POST["costoExtra"];
+$total=$POST["total"];
+$nombreTitular=$POST["nombreTitular"];
+$email=$POST["email"];
+$direccion=$POST["direccion"];
+$telefono=$POST["telefono"];
+$metodoPago=$POST["opcion"];
+$tipoVuelo=$POST["tipoVuelo"];
+$idVuelo=$POST["id_vuelo_disponible"];
+for($i=0; $i<$numPasajeros-1; $i++){ 
+  $arr[]=$_POST["pasajero-".$i];
+}
+session_start();
+$_SESSION["numPasajeros"]=$numPasajeros; 
+$_SESSION["costoBase"]=$costoBase;
+$_SESSION["costoExtra"]=$costoExtra;
+$_SESSION["total"]=$total;
+$_SESSION["nombreTitular"]=$nombreTitular;
+$_SESSION["email"]=$email;
+$_SESSION["direccion"]=$direccion;
+$_SESSION["telefono"]=$telefono;
+$_SESSION["opcion"]=$metodoPago;
+$_SESSION["tipoVuelo"]=$tipoVuelo;
+$_SESSION["id_vuelo_disponible"]=$idVuelo;
+for($i=0; $i<$numPasajeros-1; $i++){ 
+  $_SESSION["pasajero-".$i]=$arr[$i];
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +37,7 @@
 	<link rel="stylesheet" type="text/css" href="css/asientos.css">
 	<?php include("php/commonImports.php"); ?>
 	<script type="text/javascript">
-		var n = 3;
+		var n = <?php echo $numPasajeros ?>;
 	</script>
 </head>
 <body>
@@ -69,9 +101,20 @@
 			<div id="asientosContainer">
 				<div id="asientosLeft" class="asientos">
 					<!--Se cargan los asientos aqui por js o php-->
+					<?php 
+					for($i = 1; $i <= 30 ; $i++) {
+						echo "<div class=\"item available\" onclick=\"selectOrUnselect(this)\" id=\"place".$i."\">".$i."</div>";
+					}
+					?>
+
 				</div>
 				<div id="asientosRight" class="asientos">
 					<!--Se cargan los asientos aqui por js o php-->
+					<?php 
+					for($i = 1; $i <= 30 ; $i++) {
+						echo "<div class=\"item available\" onclick=\"selectOrUnselect(this)\" id=\"place".$i."\">".$i."</div>";
+					}
+					?>
 				</div>	
 			</div>
 		</div>

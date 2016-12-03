@@ -37,7 +37,7 @@
 	<section id="searchResults" class="col-md-8 col-md-offset-2
 	col-sm-12">
 		<header class="raw text-center headerResults">
-			Resultados de busqueda (<?php echo $res->num_rows." resultados" ?>)
+			Resultados de busqueda para <?php echo $partida ?><br>(<?php echo $res->num_rows." resultados" ?>)
 		</header>
 		<?php 
 		while($data = $res->fetch_array()) {
@@ -55,8 +55,12 @@
 		<input type="hidden" name="id_vuelo_disponible" value="<?php echo $data["id_vuelo_especifico"] ?>">
 		<input type="hidden" name="partida" value="<?php echo $partida ?>">
 		<input type="hidden" name="llegada" value="<?php echo $llegada ?>">
+		<input type="hidden" name="horaPartida" value="<?php echo $data["hora_salida"] ?>">
+		<input type="hidden" name="horaLlegada" value="<?php echo $data["hore_llegada"] ?>">
 		<input type="hidden" name="partidaRedondo" value="<?php echo $data["fecha_salida_redondo"] ?>">
 		<input type="hidden" name="llegadaRedondo" value="<?php echo $data["fecha_llegada_redondo"] ?>">
+		<input type="hidden" name="horaPartidaRedondo" value="<?php echo $data["hora_salida_redondo"] ?>">
+		<input type="hidden" name="horaLlegadaRedondo" value="<?php echo $data["hore_llegada_redondo"] ?>">
 		<input type="hidden" name="origen" value="<?php echo $ariport1 ?>">
 		<input type="hidden" name="destino" value="<?php echo $ariport2 ?>">
 
@@ -78,8 +82,22 @@
 										<?php echo $data["hore_llegada"]; ?>
 											
 										</span></li>
-									
 								</ul>
+								<?php 
+									if($data["fecha_salida_redondo"] != "") {
+								?>
+
+								<span class="raw flyItem">Regreso:</span>
+								<ul>
+									<li>
+										Fecha de regreso: <?php echo $data["fecha_salida_redondo"] ?>
+									</li>
+									<li>Hora: De <?php echo $data["hora_salida_redondo"]." a ".$data["hore_llegada_redondo"] ?>
+									</li>
+								</ul>
+								<?php 
+								}
+								?>
 							</div>
 							<div class="col-sm-6">
 								<div class="raw">

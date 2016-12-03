@@ -1,10 +1,4 @@
 var selection = 1;
-$(document).ready(function() {
-	for(var i = 1 ; i <= 30 ; i++) {
-		$("#asientosLeft").append("<div class=\"item"+(Math.random()*10 > 5?" available\" onclick=\"selectOrUnselect(this)\"":" unavailable")+"\" id=\"place"+i+"\">"+i+"</div>");
-		$("#asientosRight").append("<div class=\"item"+(Math.random()*10 > 5?" available\" onclick=\"selectOrUnselect(this)\"":" unavailable")+"\" id=\"place"+(i+30)+"\">"+(i+30)+"</div>");
-	}
-});
 
 function selectOrUnselect(asiento) {
 	var isSelected = $(asiento).hasClass("selected");

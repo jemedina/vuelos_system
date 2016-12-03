@@ -4,6 +4,13 @@
     $num_pasajeros=$_POST["num_pasajeros"];
     $partida = $_POST["partida"];
     $llegada = $_POST["llegada"];
+    $horaPartida = $_POST["horaPartida"];
+    $horaLlegada = $_POST["horaLlegada"];
+    $partidaRedondo = $_POST["partidaRedondo"];
+    $llegadaRedondo = $_POST["partidaRedondo"];
+    $horaPartidaRedondo = $_POST["horaPartidaRedondo"];
+    $horaLlegadaRedondo = $_POST["horaLlegadaRedondo"];
+
     $origen = $_POST["origen"];
     $destino = $_POST["destino"];
 ?>    
@@ -35,7 +42,7 @@
 </head>
 
 <body>
-<form name="pasajeros" method="post" action="php/insercionPasajeros.php">  
+<form name="pasajeros" method="post" action="seleccionarAsiento.php">  
    <div class="col-md-8"> 
    
 
@@ -160,7 +167,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label id="horaPartidaSencillo" for="cardExpiry" class="lead">17:40 hrs</label>
+                        <label id="horaPartidaSencillo" for="cardExpiry" class="lead"><?php echo $horaPartida ?></label>
                     </div>
                     <div class="col-md-8">
                         <input id="origenSencillo" class="input-lg lead" type="text" value="<?php echo $origen; ?>" readonly="">
@@ -168,7 +175,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label id="horaLLegadaSencillo" for="cardExpiry" class="lead">18:30 hrs</label>
+                        <label id="horaLLegadaSencillo" for="cardExpiry" class="lead"><?php echo $horaLlegada ?></label>
                     </div>
                     <div class="col-md-8">
                         <input id="destinoSencillo" class="input-lg lead" type="text" value="<?php echo $destino; ?>" readonly="">
@@ -176,25 +183,25 @@
                 </div>
             </div>
             <hr>
-            <?php if($llegada != "") { ?>
+            <?php if($partidaRedondo != "") { ?>
             <div>
                 <div>
-                    <p class="text-center lead"><strong><?php echo $llegada ?></strong></p>
+                    <p class="text-center lead"><strong><?php echo $partidaRedondo ?></strong></p>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label id="horaPartidaRedondo" for="cardExpiry" class="lead">20:00 hrs</label>
+                        <label id="horaPartidaRedondo" for="cardExpiry" class="lead"><?php echo $horaPartidaRedondo; ?></label>
                     </div>
                     <div class="col-md-8">
-                        <input id="origenRedondo" class="input-lg lead" type="text" value="Guadalajara" readonly="">
+                        <input id="origenRedondo" class="input-lg lead" type="text" value="<?php echo $destino ?>" readonly="">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label id="horaLLegadaRedondo" for="cardExpiry" class="lead">02:30 hrs</label>
+                        <label id="horaLLegadaRedondo" for="cardExpiry" class="lead"><?php echo $horaLlegadaRedondo; ?></label>
                     </div>
                     <div class="col-md-8">
-                        <input id="destinoRedondo" class="input-lg lead" type="text" value="Aguascalientes" readonly="">
+                        <input id="destinoRedondo" class="input-lg lead" type="text" value="<?php echo $origen; ?>" readonly="">
                     </div>
                 </div>
             </div>

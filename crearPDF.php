@@ -32,10 +32,10 @@ if ($fila = $resp->fetch_row()) {
         $fecha_v=$fila2[5];
         $id_esp=$fila2[1];
         if($fila2[7]!=null){
-            $hora_s_r=$fila[7];
-            $hora_v_r=$fila[8];
-            $fecha_s_r=$fila[9];
-            $fecha_v_r=$fila[10];
+            $hora_s_r=$fila2[7];
+            $hora_v_r=$fila2[8];
+            $fecha_s_r=$fila2[9];
+            $fecha_v_r=$fila2[10];
         }else{
             $hora_s_r="N/A";
             $hora_v_r="N/A";
@@ -48,13 +48,15 @@ if ($fila = $resp->fetch_row()) {
         if($fila3=$resp3->fetch_row()){
         
             $origen=$fila3[1];
-            $destino=$fila[2];
-            $escala=$fila[3];
+            $destino=$fila3[2];
+            $escala=$fila3[3];
+
         }
-        $origen = $conn->query("select nombre from AEREOPUERTOS where id ='$origen'");
-        $destino = $conn->query("select nombre from AEREOPUERTOS where id ='$destino'");
-        $escala = $conn->query("select nombre from AEREOPUERTOS where id ='$escala'");
+        $origen = $conn->query("select nombre from AEREOPUERTOS where id ='$origen'")->fetch_row()[0];
+        $destino = $conn->query("select nombre from AEREOPUERTOS where id ='$destino'")->fetch_row()[0];
+        $escala = $conn->query("select nombre from AEREOPUERTOS where id ='$escala'")->fetch_row()[0];
     }
+
     ##echo "<br>Nombre: ".$fila[2];
     ##echo "<br>Usuario: ".$fila[0];
     if($escala==null){
@@ -62,10 +64,12 @@ if ($fila = $resp->fetch_row()) {
     }
     ##echo "<br>Contraseña: ".$fila[1];
     $costo=$fila[4]+$fila[5];
-    if($fecha_s_r!=null){
+    
+    if($fecha_s_r != null){
         $texto="Folio: ".$folio."\nCliente: ".$fila[7]."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscalas en: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nRegreso:\nFecha salida: ".$fecha_s_r."\nFecha LLegada: ".$fecha_v_r."\nHora salida: ".$hora_s_r."\nHora LLegada: ".$hora_v_r."\nTotal: ".$costo;
     }else{
         $texto="Folio: ".$folio."\nCliente: ".$fila[7]."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscala: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nTotal: ".$costo;
+
     }
     
  
