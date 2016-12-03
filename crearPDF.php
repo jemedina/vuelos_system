@@ -20,7 +20,11 @@ $pdf=new FPDF();
 
 if ($fila = $resp->fetch_row()) {
 
-    $id=$fila[1];
+    $id=$fila[1];//toma id de vuelo disponible
+    $cliente=$fila[7];
+    $cliente = $conn->query("select titular from CLIENTES where id = $cliente")->fetch_row()[0];
+    $asientos=$fila[7];//tomar id del cliente
+    
     
     $resp2 = $conn->query("select * from VUELOS_DISPONIBLES where id = $id ");
     
@@ -71,6 +75,12 @@ if ($fila = $resp->fetch_row()) {
         $texto="Folio: ".$folio."\nCliente: ".$fila[7]."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscala: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nTotal: ".$costo;
 
     }
+    $TomaAsientos = $conn->query("select * from DETALLE_ASIENTOS where id_titular ='$asientos' AND id_vuelo_disponible = '$id'");
+    $texto2="";
+    while($filaA=$TomaAsientos->fetch_row()){
+        $texto2=$texto2." ".$filaA[2].",";
+    }
+    $texto2="\nAsientos: ".$texto2;
     
  
     $pdf->SetFont('Arial','B',16);
@@ -80,6 +90,8 @@ if ($fila = $resp->fetch_row()) {
  
     $pdf->SetFont('Arial','B',10);
     $pdf->MultiCell(190,5,$texto);
+    
+    $pdf->MultiCell(190,5,$texto2);
  
     $pdf->Output();
 }
