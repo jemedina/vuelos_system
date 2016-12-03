@@ -252,7 +252,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <div class="radio">
                         <label>
-                            <input id="sucursal" name="opcion" value="pago en sucursal" type="radio">Sucursal</label>
+                            <input id="sucursal" name="opcion" value="pago en sucursal" checked type="radio">Sucursal</label>
                     </div>
                 </div>
             </div>

@@ -70,7 +70,7 @@ for($i=0; $i<$numPasajeros-1; $i++){
       <?php } ?>
     </tbody>
   </table>
-  <form method="POST" action="insercionPasajeros.php">
+  <form method="POST" action="php/insercionPasajeros.php">
   	<?php 
   	for($i=1; $i<=$numPasajeros; $i++){ 
   		echo "<input type=\"text\" name=\"asientoName".$i."\" id=\"asientoName".$i."\">";
