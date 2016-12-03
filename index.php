@@ -46,7 +46,7 @@
 			<span id="slogan">Fast, Frequent &amp; Safe Flights</span>
 			<nav id="top_nav">
 				<ul>
-					<li><a href="index.html" class="nav1">Home</a></li>
+					<li><a href="index.php" class="nav1">Home</a></li>
 					<li><a href="#" class="nav2">Admin</a></li>
 					<li><a href="Contacts.html" class="nav3">Contact</a></li>
 				</ul>
@@ -54,7 +54,7 @@
 		</div>
 		<nav>
 			<ul id="menu">
-				<li><a href="index.html"><span><span>Buscar Vuelos</span></span></a></li>
+				<li><a href="index.php"><span><span>Buscar Vuelos</span></span></a></li>
 				<li><a href="Offers.html"><span><span>Mi vuelo</span></span></a></li>
 				<li><a href="destinos.html"><span><span>Destinos</span></span></a></li>
 				<li class="end"><a href="Contacts.html"><span><span>contacto</span></span></a></li>
