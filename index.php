@@ -93,11 +93,13 @@
 										<div>
 											<div class="radio">
 												<div class="wrapper">
-													 <span class="left">Viaje redondo</span>
+												 Sencillo:
+													 <input type="radio" checked name="tipoVuelo" value="sencillo">
+												<br>
+													Redondo:
 													 <input type="radio" name="tipoVuelo" value="redondo">
-													 <span class="left">Viaje Sencillo</span>
-													 <input type="radio" name="tipoVuelo" value="sencillo">
-												</div>
+													 
+													</div>
 											</div>
 											<div class="pad">
 												<div class="under">
@@ -130,13 +132,13 @@
 													<br>
 													<br>
 													<label for="venida">venida</label>
-													<input type="date" required name="llegada" id="venida">
+													<input type="date" name="llegada" id="venida">
 												</div>
 												<div class="wrapper pad_bot1">
 													<label class="left">Pasajeros</label>
 													<div class="cols marg_right1">
 														<div class="row">
-															<input type="number" required name="num_pasajeros" class="input" value="1"  onblur="if(this.value=='') this.value='1'" onFocus="if(this.value =='1' ) this.value=''">
+															<input type="number" min="1" max="10" required name="num_pasajeros" class="input" value="1"  onblur="if(this.value=='') this.value='1'" onFocus="if(this.value =='1' ) this.value=''">
 														</div>
 														
 													</div>

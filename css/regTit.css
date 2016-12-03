@@ -1,26 +1,34 @@
-.recuadro{
-  border:solid 2px black;
+.recuadroTitular{
+  border:solid 2px white;
   background-color:#234f8e;
   margin-top:30px;
+  margin-bottom: 30px;          
+  border-radius: 16px 16px 16px 16px;     
 }
 
-.texto{
+.textoTitular{
   color:white;
-  text-align:justify;
+  text-align:justify;   
+  font-size: 18px;     
+  margin-top: 5px;
 }
 
-.opcionesLaterales{
+.opcionesLateralesTitular{
   margin-left:20%;
 }
 
-.recuadroDerecho{
+.recuadroDerechoTitular{
   margin-left:5px;
   width:30%;
   margin-top:20px;
 }
 
-.textoLateral{
+.textoLateralTitular{
   font-size:16px;
   color:white;
   margin-top:35px;
+} 
+
+.espacio{ 
+margin-top: 10px;
 }

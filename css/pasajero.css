@@ -1,7 +1,8 @@
 .recuadro{
-  border:solid 2px black;
+  border:solid 2px white;
   background-color:#234f8e;
   margin-top:30px;
+  border-radius: 16px 16px 16px 16px; 
 }
 
 .texto{
@@ -22,4 +23,15 @@
 .textoLateral{
   font-size:16px;
   color:white;
+}
+
+.boton{ 
+margin-top: 30px; 
+margin-left: 40%; 
+background-color: skyblue;
+border-radius: 16px 16px 16px 16px;
+width: 250px; 
+margin-bottom: 50px; 
+height: 50px;     
+text-decoration: none;     
 }
