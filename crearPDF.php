@@ -94,5 +94,7 @@ if ($fila = $resp->fetch_row()) {
     $pdf->MultiCell(190,5,$texto2);
  
     $pdf->Output();
+}else{
+    header("locaiton:index.php");
 }
 ?>
