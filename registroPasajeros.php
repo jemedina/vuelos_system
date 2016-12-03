@@ -2,6 +2,7 @@
 <html>
 <?php 
     $num_pasajeros=$_POST["num_pasajeros"];
+    $precio=$_POST["costoBase"];
     $partida = $_POST["partida"];
     $llegada = $_POST["llegada"];
     $horaPartida = $_POST["horaPartida"];
@@ -22,7 +23,8 @@
     <link rel="stylesheet" href="css/regTit.css">
       <link rel="stylesheet" href="css/pasajero.css">
     <script>
-        var costobase=2470;
+        var nPasajeros=<?php echo $num_pasajeros; ?>;
+        var costobase=<?php echo $precio; ?>;
      var sumaTotal=0;     
      function sumar(check){ 
       
@@ -32,12 +34,13 @@
          sumaTotal-=parseInt(check.value);
          }
      //alert(sumaTotal); 
-         var Total=sumaTotal+costobase
+         var Total=sumaTotal+(costobase*nPasajeros);
         $("#total").val(Total);
         $("#costoBase").val(costobase);
         $("#costoExtra").val(sumaTotal);
      } 
-     
+        
+        
     </script>
 </head>
 
@@ -109,7 +112,7 @@
                      
                      <div class="container-fluid recuadro">
                     <div class="row espacio">
-                       <input type="hidden" name="<?php echo "pasajero-$i";?>">
+                       <input type="hidden" name="<?php echo "pasajero-".$i;?>">
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-4 lead texto">
@@ -150,7 +153,10 @@
                 <input type="hidden"  id="costoExtra" name="costoExtra">   
                 <input type="hidden" value="<?php echo $num_pasajeros; ?>" id="numPasajeros" name="numPasajeros">    
                 <input type="hidden" value="<?php echo $_POST["tipoVuelo"]; ?>" id="tipoVuelo" name="tipoVuelo">  
-                <input type="hidden" value="<?php echo $_POST["id_vuelo_disponible"]; ?>" id="id_vuelo" name="id_vuelo">   
+                <input type="hidden" value="<?php echo $_POST["id_vuelo_disponible"]; ?>" id="id_vuelo" name="id_vuelo_disponible"> 
+                <input type="hidden" value="<?php echo $origen; ?>" name="origen"> 
+                <input type="hidden" value="<?php echo $destino; ?>" name="destino"> 
+                  
                 <input type="submit" class="boton" value="Continuar"> 
               
         
@@ -216,7 +222,7 @@
                         <label for="cardExpiry" class="lead">Costo x Pasajero</label>
                     </div>
                     <div class="col-md-7">
-                        <input id="costoxPasajero" class="input-lg lead" type="text" value="1900" readonly="">
+                        <input id="costoxPasajero" class="input-lg lead" type="text" value="<?php echo $precio; ?>" readonly="">
                     </div>
                 </div>
                 <div class="row">
@@ -226,7 +232,7 @@
                     <div class="col-md-7">
                         <div class="input-group">
                             <div class="input-group-addon"><span>$ </span></div>
-                            <input id="total" type="text" value="24700" readonly="" class="form-control">
+                            <input id="total" type="text" readonly="" name="total" class="form-control" style="width: 100px;">
                         </div>
                     </div>
                 </div>
@@ -270,6 +276,15 @@
 </form>      
     <script src="js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+     $(document).ready(function(){
+         var Total=sumaTotal+(costobase*nPasajeros);
+        $("#total").val(Total);
+        
+        $("#costoBase").val(costobase);
+        $("#costoExtra").val(sumaTotal);
+    });
+</script>
 </body>
 
 </html>

@@ -10,6 +10,8 @@ $telefono=$_POST["telefono"];
 $metodoPago=$_POST["opcion"];
 $tipoVuelo=$_POST["tipoVuelo"];
 $idVuelo=$_POST["id_vuelo_disponible"];
+$origen=$_POST["origen"];
+$destino=$_POST["destino"];
 for($i=0; $i<$numPasajeros-1; $i++){ 
   $arr[]=$_POST["pasajero-".$i];
 }
@@ -48,7 +50,7 @@ for($i=0; $i<$numPasajeros-1; $i++){
 			<label id="labelAsiento">Elige tu asiento de:</label>
 		</div>
 		<div class="raw" id="travelInfo">
-			<span id="origen">Guadalajara (JAL)</span> a <span id="destino">La paz (LAP)</span>
+			<span id="origen"><?php echo $origen; ?></span> a <span id="destino"><?php echo $destino; ?></span>
 		</div>
 		<div class="raw">
 			<table class="table table-striped">
@@ -73,7 +75,7 @@ for($i=0; $i<$numPasajeros-1; $i++){
   <form method="POST" action="php/insercionPasajeros.php">
   	<?php 
   	for($i=1; $i<=$numPasajeros; $i++){ 
-  		echo "<input type=\"text\" name=\"asientoName".$i."\" id=\"asientoName".$i."\">";
+  		echo "<input type=\"hidden\" name=\"asientoName".$i."\" id=\"asientoName".$i."\">";
   	}  	
   	?>
   	<input type="submit">

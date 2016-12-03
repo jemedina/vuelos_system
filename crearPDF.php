@@ -10,8 +10,7 @@ $pdf=new FPDF();
     $cont="holamundo";
     $bd="VUELOS_DB";
     
-    $folio=$_POST['folio'];
-    $folio=1;
+    $folio=$_GET['folio'];
     $conn=new DB();
     //include("DB.php");
     //$db=new DB();
@@ -94,5 +93,7 @@ if ($fila = $resp->fetch_row()) {
     $pdf->MultiCell(190,5,$texto2);
  
     $pdf->Output();
+}else{
+    header("locaiton:index.php");
 }
 ?>
