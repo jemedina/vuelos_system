@@ -70,9 +70,9 @@ if ($fila = $resp->fetch_row()) {
     $costo=$fila[4]+$fila[5];
     
     if($fecha_s_r != null){
-        $texto="Folio: ".$folio."\nCliente: ".$fila[7]."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscalas en: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nRegreso:\nFecha salida: ".$fecha_s_r."\nFecha LLegada: ".$fecha_v_r."\nHora salida: ".$hora_s_r."\nHora LLegada: ".$hora_v_r."\nTotal: ".$costo;
+        $texto="Folio: ".$folio."\nCliente: ".$cliente."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscalas en: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nRegreso:\nFecha salida: ".$fecha_s_r."\nFecha LLegada: ".$fecha_v_r."\nHora salida: ".$hora_s_r."\nHora LLegada: ".$hora_v_r."\nTotal: ".$costo;
     }else{
-        $texto="Folio: ".$folio."\nCliente: ".$fila[7]."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscala: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nTotal: ".$costo;
+        $texto="Folio: ".$folio."\nCliente: ".$cliente."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscala: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nTotal: ".$costo;
 
     }
     $TomaAsientos = $conn->query("select * from DETALLE_ASIENTOS where id_titular ='$asientos' AND id_vuelo_disponible = '$id'");

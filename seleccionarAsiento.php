@@ -1,15 +1,15 @@
 <?php 
-$numPasajeros=$POST["numPasajeros"]; 
-$costoBase=$POST["costoBase"];
-$costoExtra=$POST["costoExtra"];
-$total=$POST["total"];
-$nombreTitular=$POST["nombreTitular"];
-$email=$POST["email"];
-$direccion=$POST["direccion"];
-$telefono=$POST["telefono"];
-$metodoPago=$POST["opcion"];
-$tipoVuelo=$POST["tipoVuelo"];
-$idVuelo=$POST["id_vuelo_disponible"];
+$numPasajeros=$_POST["numPasajeros"];
+$costoBase=$_POST["costoBase"];
+$costoExtra=$_POST["costoExtra"];
+$total=$_POST["total"];
+$nombreTitular=$_POST["nombreTitular"];
+$email=$_POST["email"];
+$direccion=$_POST["direccion"];
+$telefono=$_POST["telefono"];
+$metodoPago=$_POST["opcion"];
+$tipoVuelo=$_POST["tipoVuelo"];
+$idVuelo=$_POST["id_vuelo_disponible"];
 for($i=0; $i<$numPasajeros-1; $i++){ 
   $arr[]=$_POST["pasajero-".$i];
 }
@@ -34,11 +34,12 @@ for($i=0; $i<$numPasajeros-1; $i++){
 <html>
 <head>
 	<title>Selecciona tu asiento</title>
-	<link rel="stylesheet" type="text/css" href="css/asientos.css">
-	<?php include("php/commonImports.php"); ?>
 	<script type="text/javascript">
 		var n = <?php echo $numPasajeros ?>;
 	</script>
+	<link rel="stylesheet" type="text/css" href="css/asientos.css">
+	<?php include("php/commonImports.php"); ?>
+	
 </head>
 <body>
 <div class="row">
@@ -59,23 +60,24 @@ for($i=0; $i<$numPasajeros-1; $i++){
       </tr>
     </thead>
     <tbody>
+    <?php for($i = 1 ; $i <= $numPasajeros; $i++) { ?>
       <tr>
-        <td>Pasajero 1</td>
-        <td id="asiento1" class="asientoClass">No asignado</td>
-        <td><input id="sel1" type="radio" name="selection" checked onclick="setSelection(1)"></td>
+        <td>Pasajero <?php echo $i; ?></td>
+        <td id="<?php echo "asiento".$i ?>" class="asientoClass">No asignado</td>
+        <td><input id="<?php echo "sel".$i ?>" type="radio" name="selection" <?php if($i==1) echo "checked"; ?> onclick="setSelection(<?php echo $i; ?>)"></td>
       </tr>
-      <tr>
-        <td>Pasajero 2</td>
-        <td id="asiento2" class="asientoClass">No asignado</td>
-        <td><input id="sel2" type="radio" name="selection" onclick="setSelection(2)"></td>
-      </tr>
-      <tr>
-        <td>Pasajero 3</td>
-        <td id="asiento3" class="asientoClass">No asignado</td>
-        <td><input id="sel3" type="radio" name="selection" onclick="setSelection(3)"></td>
-      </tr>
+
+      <?php } ?>
     </tbody>
   </table>
+  <form method="POST" action="insercionPasajeros.php">
+  	<?php 
+  	for($i=1; $i<=$numPasajeros; $i++){ 
+  		echo "<input type=\"text\" name=\"asientoName".$i."\" id=\"asientoName".$i."\">";
+  	}  	
+  	?>
+  	<input type="submit">
+  </form>
 		</div>
 	</div>
 	<div class="col-md-6" id="asientos">

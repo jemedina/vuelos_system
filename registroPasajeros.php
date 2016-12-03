@@ -148,7 +148,7 @@
                     ?>
                 <input type="hidden" value="" id="<?php echo $_POST["costoBase"]?>" name="costoBase">    
                 <input type="hidden"  id="costoExtra" name="costoExtra">   
-                <input type="hidden" value="<?php echo "$numPasajeros"; ?>" id="numPasajeros" name="numPasajeros">    
+                <input type="hidden" value="<?php echo $num_pasajeros; ?>" id="numPasajeros" name="numPasajeros">    
                 <input type="hidden" value="<?php echo $_POST["tipoVuelo"]; ?>" id="tipoVuelo" name="tipoVuelo">  
                 <input type="hidden" value="<?php echo $_POST["id_vuelo_disponible"]; ?>" id="id_vuelo" name="id_vuelo">   
                 <input type="submit" class="boton" value="Continuar"> 

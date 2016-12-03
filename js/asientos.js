@@ -11,7 +11,8 @@ function selectOrUnselect(asiento) {
 		$(asiento).removeClass("available");
 		$(asiento).addClass("selected");
 		$("#asiento"+selection).html($(asiento).html());
-		if(selection < 3) {
+		$("#asientoName"+selection).val($(asiento).html());
+		if(selection < n) {
 			$("#sel"+selection).prop("checked","false");
 			selection++;
 			$("#sel"+selection).prop("checked","true");
