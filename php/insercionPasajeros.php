@@ -26,6 +26,7 @@ $idVuelo=$_SESSION["id_vuelo_disponible"];
 
 for($i=0; $i<$numPasajeros-1; $i++){ 
   $arr[]=$_POST["pasajero-".$i];
+  $asientos[]=$_POST["asientoName".$i];
 }
 	$db = new DB();
     $INSERT_TITULAR= "INSERT INTO CLIENTES (id,email,telefono,domicilio,titular) VALUES (NULL,'$email','$telefono','$direccion','$nombreTitular')";
@@ -50,9 +51,13 @@ for($i=0; $i<$numPasajeros-1; $i++){
         $insercionOtros = $db->query($INSERT_OTROS);
         }
     }
-     
-      header("Location: ../crearPDF.php?folio=$folio");   
-     session_destroy(); 
+    foreach($asientos as $asiento) {
+        $INSERT_ASIENTOS = "INSERT INTO DETALLE_ASIENTOS (id_vuelo_disponible,id_titular,numero,estado) VALUES ($id_vuelo_disponible,$id, $asiento, 1)";
+        echo $INSERT_ASIENTOS."<br>";
+        $db->query($INSERT_ASIENTOS);
+     }
+      //header("Location: ../crearPDF.php?folio=$folio");   
+     //session_destroy(); 
     }else{ 
         
         
