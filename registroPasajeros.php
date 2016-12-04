@@ -59,7 +59,7 @@
                                     <label><strong>Nombre del titular</strong></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control" required="" type="text" id="nombreTitular" name="nombreTitular">
+                                    <input class="form-control" required="" type="text" id="nombreTitular" name="nombreTitular" required="true">
                                 </div>
                             </div>
                             <div class="row">
@@ -67,7 +67,7 @@
                                     <label class="lead"><strong>Email </strong></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control" required="" type="text" id="email" name="email">
+                                    <input class="form-control" required="true" type="email" id="email" name="email">
                                 </div>
                             </div>
                             <div class="row">
@@ -75,7 +75,7 @@
                                     <label class="lead"><strong>Teléfono </strong></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control" required="" type="text" id="telefono" name="telefono">
+                                    <input class="form-control" required="true" type="text" id="telefono" name="telefono">
                                 </div>
                             </div>
                             <div class="row">
@@ -83,7 +83,7 @@
                                     <label class="lead"><strong>Dirección </strong></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control" required="" type="text" id="direccion" name="direccion">
+                                    <input class="form-control" required="true" type="text" id="direccion" name="direccion">
                                 </div>
                             </div>
                         </div>
