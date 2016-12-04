@@ -66,7 +66,7 @@ if ($fila = $resp->fetch_row()) {
         $escala="";
     }
     ##echo "<br>Contraseña: ".$fila[1];
-    $costo=$fila[4];
+    $costo=$fila[4]+$fila[5];
     
     if($fecha_s_r != null){
         $texto="Folio: ".$folio."\nCliente: ".$cliente."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscalas en: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nRegreso:\nFecha salida: ".$fecha_s_r."\nFecha LLegada: ".$fecha_v_r."\nHora salida: ".$hora_s_r."\nHora LLegada: ".$hora_v_r."\nTotal: ".$costo;
@@ -81,11 +81,6 @@ if ($fila = $resp->fetch_row()) {
     }
     $texto2="\nAsientos: ".$texto2;
     
-    $otrosClientes = $conn->query("select nombre from OTROS_PASAJEROS where folio_reserva = '$folio'");
-    $texto3="clientes: ";
-    while($filaP=$otrosClientes->fetch_row()){
-        $texto3=$texto3." ".$filaP[0].",";
-    }
  
     $pdf->SetFont('Arial','B',16);
     $pdf->Cell(50,10,'Datos del Vuelo',1,1,'L');
@@ -96,8 +91,6 @@ if ($fila = $resp->fetch_row()) {
     $pdf->MultiCell(190,5,$texto);
     
     $pdf->MultiCell(190,5,$texto2);
-    
-    $pdf->MultiCell(190,5,$texto3);
  
     $pdf->Output();
 }else{

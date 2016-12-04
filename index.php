@@ -42,12 +42,12 @@
 <!--header -->
 	<header>
 		<div class="wrapper">
-			<h1><a href="index.html" id="logo">Air lines</a></h1>
+			<h1><a href="index.php" id="logo">Air lines</a></h1>
 			<span id="slogan">Fast, Frequent &amp; Safe Flights</span>
 			<nav id="top_nav">
 				<ul>
 					<li><a href="index.php" class="nav1">Home</a></li>
-					<li><a href="#" class="nav2">Admin</a></li>
+					<li><a href="altasVuelos.php" class="nav2">Admin</a></li>
 					<li><a href="Contacts.html" class="nav3">Contact</a></li>
 				</ul>
 			</nav>
@@ -106,7 +106,7 @@
 													<div>
 														<label for="Origen" class="">Origen</label>
 														<br>
-															<select class="input1" required name="origen" id="origen">
+															<select class="input1" required="true" name="origen" id="origen">
 															<?php 
 																for($i = 0 ; $i < count($airportsArray); $i++) {
 																	echo "<option value='".$airportsArray[$i]["id"]."'>".$airportsArray[$i]["nombre"]."</option>";
@@ -116,7 +116,7 @@
 														<br>
 														<label for="Origen" class="" >Destino</label>
                                                         <br>
-                                                            <select class="input1" required name="destino" id="origen">
+                                                            <select class="input1" required="true" name="destino" id="origen">
                                                        		<?php 
 																for($i = 0 ; $i < count($airportsArray); $i++) {
 																	echo "<option value='".$airportsArray[$i]["id"]."'>".$airportsArray[$i]["nombre"]."</option>";
