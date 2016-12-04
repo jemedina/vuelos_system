@@ -81,6 +81,11 @@ if ($fila = $resp->fetch_row()) {
     }
     $texto2="\nAsientos: ".$texto2;
     
+    $otrosClientes = $conn->query("select nombre from OTROS_PASAJEROS where folio_reserva = '$folio'");
+    $texto3="clientes: ";
+    while($filaP=$otrosClientes->fetch_row()){
+        $texto3=$texto3." ".$filaP[0].",";
+    }
  
     $pdf->SetFont('Arial','B',16);
     $pdf->Cell(50,10,'Datos del Vuelo',1,1,'L');
@@ -91,6 +96,8 @@ if ($fila = $resp->fetch_row()) {
     $pdf->MultiCell(190,5,$texto);
     
     $pdf->MultiCell(190,5,$texto2);
+    
+    $pdf->MultiCell(190,5,$texto3);
  
     $pdf->Output();
 }else{
