@@ -63,6 +63,7 @@
 		<input type="hidden" name="horaLlegadaRedondo" value="<?php echo $data["hore_llegada_redondo"] ?>">
 		<input type="hidden" name="origen" value="<?php echo $ariport1 ?>">
 		<input type="hidden" name="destino" value="<?php echo $ariport2 ?>">
+        <input type="hidden" name="tipoVielo" value="<?php echo $tipoVuelo; ?>">
 
 		<article class="searchItem row">
 			<div class="raw">

@@ -1,4 +1,5 @@
 <?php 
+include("php/DB.php");
 session_start(); 
 $numPasajeros=$_SESSION["numPasajeros"]; 
 $costoBase=$_SESSION["costoBase"];
@@ -13,6 +14,17 @@ $tipoVuelo=$_SESSION["tipoVuelo"];
 $idVuelo=$_SESSION["id_vuelo_disponible"];
 for($i=0; $i<$numPasajeros-1; $i++){ 
   $arr[]=$_SESSION["pasajero-".$i];
+} 
+
+$origen=$_GET["origen"];
+$destino=$_GET["destino"];
+$costo=$_GET["costoBase"];
+$costoTotal=$_GET["total"];
+if($tipoVuelo == "redondo"){ 
+$partidaRedondo=$_GET["partidaRedondo"];
+$llegadaRedondo=$_GET["llegadaRedondo"];
+$horaPartidaRedondo=$_GET["horaPartidaRedondo"];
+$horaLlegadaRedondo=$_GET["horaLlegadaRedondo"];
 }
 
 $db = new DB(); 
@@ -20,30 +32,33 @@ $SACAR_VUELO_DISPONIBLE= "SELECT * FROM VUELOS_DISPONIBLES WHERE id='$idVuelo'";
     $consulta = $db->query($SACAR_VUELO_DISPONIBLE);
     
     $vuelo = $consulta->fetch_array();
-
     $id = $vuelo['id'];
     $id_vuelo_especifico = $vuelo['id_vuelo_especifico']; 
     $hora_salida = $vuelo['hora_salida'];
-    $hora_llegada = $vuelo['hora_llegada'];
+    $hora_llegada = $vuelo['hore_llegada'];
     $fecha_salida = $vuelo['fecha_salida'];
     $fecha_llegada = $vuelo['fecha_llegada'];
    
-$SACAR_VUELO_ESPECIFICO= "SELECT * FROM VUELOS_ESPECIFICOS WHERE id_vuelo_especifico='$id_vuelo_especifico'"; 
+/*$SACAR_VUELO_ESPECIFICO= "SELECT * FROM VUELOS_ESPECIFICOS WHERE id='$id_vuelo_especifico'"; 
 $consulta2 = $db->query($SACAR_VUELO_ESPECIFICO); 
 $info_vuelo = $consulta2->fetch_array(); 
 
  $origen = $info_vuelo['origen'];
  $destino = $info_vuelo['destino'];
 
-$SACAR_ORIGEN= "SELECT nombre FROM AEROPUERTOS WHERE id='$origen'"; 
+
+$SACAR_ORIGEN= "SELECT * FROM AEROPUERTOS WHERE id=$origen"; 
 $consultaOrigen = $db->query($SACAR_ORIGEN); 
-$AERO_ORIGEN = mysqli_fetch_array($consultaOrigen); 
+/*$nombreOrigen = $consultaOrigen->fetch_array();
+$AERO_ORIGEN = $nombreOrigen['nombre'];*/
+/*$AERO_ORIGEN = mysqli_fetch_array($consultaOrigen); 
 
 $SACAR_DESTINO= "SELECT nombre FROM AEROPUERTOS WHERE id='$destino'"; 
-$consultaDESTINO = $db->query($SACAR_DESTINO); 
-$AERO_DESTINO = mysqli_fetch_array($consultaDestino);
+$consultaDestino = $db->query($SACAR_DESTINO); 
+$AERO_DESTINO = mysqli_fetch_array($consultaDestino);*/
 
-
+$AERO_ORIGEN=$origen;
+$AERO_DESTINO=$destino; 
 ?>
 <!DOCTYPE html>
 <html>
@@ -150,11 +165,16 @@ $AERO_DESTINO = mysqli_fetch_array($consultaDestino);
             <hr>
             <div>
                 <div>
-                    <p class="text-center lead"><strong>viernes, 9 Diciembre 2016</strong></p>
+                   <?php 
+                    echo "<p class='text-center lead'><strong>$partidaRedondo</strong></p>";
+                  ?>
+                   
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label id="horaPartidaRedondo" for="cardExpiry" class="lead">20:00 hrs</label>
+                       <?php 
+                        echo "<label id='horaPartidaRedondo' for='cardExpiry' class='lead'>$horaPartidaRedondo hrs</label>";   
+                     ?>
                     </div>
                     <div class="col-md-8">
                        <?php 
@@ -164,11 +184,13 @@ $AERO_DESTINO = mysqli_fetch_array($consultaDestino);
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label id="horaLLegadaRedondo" for="cardExpiry" class="lead">02:30 hrs</label>
+                       <?php 
+                        echo "<label id='horaLLegadaRedondo' for='cardExpiry' class='lead'>$horaLlegadaRedondo hrs</label>";   
+                     ?>
                     </div>
                     <div class="col-md-8">
                         <?php 
-                        echo "<input id='destinoRedondo' class='input-lg lead' type='text' value='$AERO_DESTINO' readonly=''>";
+                        echo "<input id='destinoRedondo' class='input-lg lead' type='text' value='$AERO_ORIGEN' readonly=''>";
                         ?>   
                     </div>
                 </div>
@@ -182,9 +204,9 @@ $AERO_DESTINO = mysqli_fetch_array($consultaDestino);
                     <div class="col-md-5">
                         <label for="cardExpiry" class="lead">Costo x Pasajero</label>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-5">
                         <?php 
-                        echo "<input id='costoxPasajero' class='input-lg lead' type='text' value='$costoBase' readonly=''>";
+                        echo "<input id='costoxPasajero' class='input-lg lead' type='text' value='$costo' readonly=''>";
                         ?>   
                     </div>
                 </div>
@@ -194,9 +216,9 @@ $AERO_DESTINO = mysqli_fetch_array($consultaDestino);
                     </div>
                     <div class="col-md-7">
                         <div class="input-group">
-                            <div class="input-group-addon"><span>$ </span></div>
+                            <div class="input-group-addon" style="height:5px;"><span>$ </span></div>
                              <?php 
-                             echo "<input id='total' class='input-lg lead' type='text' value='$costoExtra' readonly='' class='form-control'>";
+                             echo "<input id='total' class='input-lg lead' type='text' value='$costoTotal' readonly='' class='form-control'>";
                               ?>   
                         </div>
                     </div>

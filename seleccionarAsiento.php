@@ -1,6 +1,7 @@
 <?php 
 $numPasajeros=$_POST["numPasajeros"];
 $costoBase=$_POST["costoBase"];
+$precio=$_POST["precio"];
 $costoExtra=$_POST["costoExtra"];
 $total=$_POST["total"];
 $nombreTitular=$_POST["nombreTitular"];
@@ -12,6 +13,11 @@ $tipoVuelo=$_POST["tipoVuelo"];
 $idVuelo=$_POST["id_vuelo_disponible"];
 $origen=$_POST["origen"];
 $destino=$_POST["destino"];
+$partidaRedondo=$_POST["partidaRedondo"];
+$llegadaRedondo=$_POST["llegadaRedondo"];
+$horaPartidaRedondo=$_POST["horaPartidaRedondo"];
+$horaLlegadaRedondo=$_POST["horaLlegadaRedondo"];
+
 for($i=0; $i<$numPasajeros-1; $i++){ 
   $arr[]=$_POST["pasajero-".$i];
 }
@@ -77,7 +83,23 @@ for($i=0; $i<$numPasajeros-1; $i++){
   	for($i=1; $i<=$numPasajeros; $i++){ 
   		echo "<input type=\"hidden\" name=\"asientoName".$i."\" id=\"asientoName".$i."\">";
   	}  	
-  	?>
+  	?> 
+  	<input type="hidden" value="<?php echo $origen; ?>" name="origen"> 
+    <input type="hidden" value="<?php echo $destino; ?>" name="destino"> 
+    <input type="hidden" value="<?php echo $precio; ?>" name="precio">
+    <?php 
+       if($tipoVuelo == "redondo"){  
+    ?>  
+    
+    <input type="hidden" value="<?php echo $partidaRedondo; ?>" name="partidaRedondo">   
+    <input type="hidden" value="<?php echo $llegadaRedondo; ?>" name="llegadaRedondo"> 
+    <input type="hidden" value="<?php echo $horaPartidaRedondo; ?>" name="horaPartidaRedondo"> 
+    <input type="hidden" value="<?php echo $horaLlegadaRedondo; ?>" name="horaLlegadaRedondo"> 
+    
+   <?php 
+    }
+    ?>  
+   
   	<input type="submit">
   </form>
 		</div>

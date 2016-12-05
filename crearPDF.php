@@ -1,13 +1,12 @@
 <?php
-error_reporting(E_ALL);
-ini_set('error_reporting', 1);
+
 require('fpdf/fpdf.php');
 require("php/DB.php");
 $pdf=new FPDF();
     $pdf->AddPage();
     $servidor="localhost";
-    $usuario="eduardo";
-    $cont="holamundo";
+    $usuario="root";
+    $cont="";
     $bd="VUELOS_DB";
     
     $folio=$_GET['folio'];
@@ -66,7 +65,7 @@ if ($fila = $resp->fetch_row()) {
         $escala="";
     }
     ##echo "<br>Contraseña: ".$fila[1];
-    $costo=$fila[4]+$fila[5];
+    $costo=$fila[4];
     
     if($fecha_s_r != null){
         $texto="Folio: ".$folio."\nCliente: ".$cliente."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscalas en: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nRegreso:\nFecha salida: ".$fecha_s_r."\nFecha LLegada: ".$fecha_v_r."\nHora salida: ".$hora_s_r."\nHora LLegada: ".$hora_v_r."\nTotal: ".$costo;
