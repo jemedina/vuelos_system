@@ -41,6 +41,7 @@ for($i=0; $i<$numPasajeros-1; $i++){
 }
 $db = new DB();
 $SQL_GET_ASIENTOS = "SELECT numero FROM detalle_asientos WHERE id_vuelo_disponible = ".$idVuelo;
+//die($SQL_GET_ASIENTOS);
 $res = $db->query($SQL_GET_ASIENTOS);
 while($item = $res->fetch_array())
 {
@@ -137,6 +138,7 @@ while($item = $res->fetch_array())
 			<div id="asientosContainer">
 				<div id="asientosLeft" class="asientos">
 					<!--Se cargan los asientos aqui por js o php-->
+
 					<?php 
 					for($i = 1; $i <= 30 ; $i++) {
 						if(isset($asientosOcupados)){

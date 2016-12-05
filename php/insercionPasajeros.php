@@ -56,7 +56,8 @@ for($i=1; $i<($numPasajeros+1); $i++)
     foreach($asientos as $asiento) {
         $INSERT_ASIENTOS = "INSERT INTO DETALLE_ASIENTOS (id_vuelo_disponible,id_titular,numero,estado) VALUES ($idVuelo,$id, $asiento, 1)";
         echo $INSERT_ASIENTOS."<br>";
-        $db->query($INSERT_ASIENTOS);
+        $res = $db->query($INSERT_ASIENTOS);
+        var_dump($res);
      }
       header("Location: ../crearPDF.php?folio=$folio");   
      session_destroy(); 

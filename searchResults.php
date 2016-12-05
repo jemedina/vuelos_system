@@ -13,10 +13,16 @@
 	$llegada = $_POST["llegada"];
 	$numPasajeros = $_POST["num_pasajeros"];
 	$tipoVuelo = $_POST["tipoVuelo"];
-	$clase = $_POST["clase"];	
-	$filter1 = "SELECT * FROM vuelos_disponibles JOIN vuelos_especificos on vuelos_disponibles.id_vuelo_especifico = vuelos_especificos.id WHERE vuelos_disponibles.id_vuelo_especifico IN (SELECT vuelos_especificos.id FROM vuelos_especificos WHERE vuelos_especificos.origen = $origen AND vuelos_especificos.destino=$destino) AND vuelos_disponibles.fecha_salida>=sysdate()";
+	$clase = $_POST["clase"];
+	if($tipoVuelo == "sencillo"){
+		$filter = "SELECT * FROM vuelos_disponibles JOIN vuelos_especificos on vuelos_disponibles.id_vuelo_especifico = vuelos_especificos.id WHERE vuelos_disponibles.id_vuelo_especifico IN (SELECT vuelos_especificos.id FROM vuelos_especificos WHERE vuelos_especificos.origen = $origen AND vuelos_especificos.destino=$destino) AND vuelos_disponibles.fecha_salida>=sysdate() AND vuelos_disponibles.fecha_salida_redondo IS NULL";
+	}
+	else
+	{
+		$filter = "SELECT * FROM vuelos_disponibles JOIN vuelos_especificos on vuelos_disponibles.id_vuelo_especifico = vuelos_especificos.id WHERE vuelos_disponibles.id_vuelo_especifico IN (SELECT vuelos_especificos.id FROM vuelos_especificos WHERE vuelos_especificos.origen = $origen AND vuelos_especificos.destino=$destino) AND vuelos_disponibles.fecha_salida>=sysdate() AND vuelos_disponibles.fecha_salida_redondo IS NOT NULL";
+	}
 	//die($filter1);
-	$res = $db->query($filter1);
+	$res = $db->query($filter);
 
 
 	$sqlGetAriportsById = "SELECT * FROM AEREOPUERTOS WHERE id = ";
@@ -42,18 +48,19 @@
 		</header>
 		<?php 
 		while($data = $res->fetch_array()) {
-			/*
+					/*
 				num_pasajeros
 				costoBase
 				tipoVuelo
 				id_vuelo_disponible
 			*/	
 		?> 
+
 		<form action="registroPasajeros.php" method="POST">
 		<input type="hidden" name="num_pasajeros" value="<?php echo $numPasajeros; ?>">
 		<input type="hidden" name="costoBase" value="<?php echo $data["precio"]; ?>">
 		<input type="hidden" name="tipoVuelo" value="<?php echo $tipoVuelo; ?>">
-		<input type="hidden" name="id_vuelo_disponible" value="<?php echo $data["id_vuelo_especifico"] ?>">
+		<input type="hidden" name="id_vuelo_disponible" value="<?php echo $data["0"] ?>">
 		<input type="hidden" name="partida" value="<?php echo $partida ?>">
 		<input type="hidden" name="llegada" value="<?php echo $llegada ?>">
 		<input type="hidden" name="horaPartida" value="<?php echo $data["hora_salida"] ?>">

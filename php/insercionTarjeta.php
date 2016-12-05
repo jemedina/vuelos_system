@@ -26,9 +26,10 @@ for($i=0; $i<$numPasajeros-1; $i++){
     $id = mysqli_fetch_array($consultaID)["id"];
 
     $RESERVAR = "INSERT INTO RESERVA (folio,id_vuelo_disponible,nro_pasajeros,tipo_vuelo,costo, costo_extra, metodo_pago, id_cliente) VALUES (NULL,'$idVuelo','$numPasajeros','$tipoVuelo','$costoBase','$costoExtra','$metodoPago','$id');";
-        
+    $db->query($RESERVAR);
     $SACAR_FOLIO= "SELECT folio FROM RESERVA WHERE id_cliente='$id'"; 
     $consultaFolio = $db->query($SACAR_FOLIO);
+    //die($SACAR_FOLIO);
     $folio = mysqli_fetch_array($consultaFolio)["folio"];
     if(isset($arr)) {
         for($i=0; $i<count($arr); $i++){ 

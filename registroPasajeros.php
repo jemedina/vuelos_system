@@ -189,7 +189,7 @@
                 </div>
             </div>
             <hr>
-            <?php if($tipoVuelo == "redondo") { ?>
+            <?php if($partidaRedondo!="") { ?>
             <div>
                 <div>
                     <p class="text-center lead"><strong><?php echo $partidaRedondo ?></strong></p>
