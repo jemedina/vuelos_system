@@ -26,6 +26,7 @@ for($i=0; $i<$numPasajeros-1; $i++){
   $_SESSION["pasajero-".$i] = $arr[$i];
 }
 
+$costoAsientos=$_POST["extraAsiento"];
 for($i=1; $i<($numPasajeros+1); $i++)
 {
     $asientos[]=$_POST["asientoName".$i];
@@ -39,7 +40,7 @@ for($i=1; $i<($numPasajeros+1); $i++)
     $id = mysqli_fetch_array($consultaID)["id"];  
     if( $metodoPago=="pago en sucursal" ) { 
     
-    $RESERVAR = "INSERT INTO RESERVA (folio,id_vuelo_disponible,nro_pasajeros,tipo_vuelo,costo, costo_extra, metodo_pago, id_cliente) VALUES (NULL,'$idVuelo','$numPasajeros','$tipoVuelo','".($total-$costoExtra)."','$costoExtra','$metodoPago','$id');";
+    $RESERVAR = "INSERT INTO RESERVA (folio,id_vuelo_disponible,nro_pasajeros,tipo_vuelo,costo, costo_extra, metodo_pago, id_cliente) VALUES (NULL,'$idVuelo','$numPasajeros','$tipoVuelo','".($total-$costoExtra)+($costoAsientos)."','$costoExtra','$metodoPago','$id');";
     $res = $db->query($RESERVAR);
     $SACAR_FOLIO= "SELECT folio FROM RESERVA WHERE id_cliente=$id order by folio desc"; 
     echo "<br>".$SACAR_FOLIO;
@@ -63,9 +64,9 @@ for($i=1; $i<($numPasajeros+1); $i++)
      session_destroy(); 
     }else{ 
         
-        
+    $costoAgregado=$costoBase+$costoAsientos;     
     
-    header("Location: ../DetallesPagos.php?costoBase=$costoBase&total=$total&tipoVuelo=$tipoVuelo&id_vuelo_disponible=$idVuelo");  
+    header("Location: ../DetallesPagos.php?costoBase=$costoAgregado&total=$total&tipoVuelo=$tipoVuelo&id_vuelo_disponible=$idVuelo");  
         
     
     

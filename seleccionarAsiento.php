@@ -55,6 +55,7 @@ while($item = $res->fetch_array())
 	<title>Selecciona tu asiento</title>
 	<script type="text/javascript">
 		var n = <?php echo $numPasajeros ?>;
+        var totalBase = <?php echo $total ?>;
 	</script>
 	<link rel="stylesheet" type="text/css" href="css/asientos.css">
 	<?php include("php/commonImports.php"); ?>
@@ -65,6 +66,9 @@ while($item = $res->fetch_array())
 	<div class="col-md-6" id="infoVuelo">
 		<div class="raw">
 			<label id="labelAsiento">Elige tu asiento de:</label>
+		</div>
+		<div class="raw"> 
+		 Total : $<span id="totalSpan"><?php echo $total ?></span>
 		</div>
 		<div class="raw" id="travelInfo">
 			<span id="origen"><?php echo $origen; ?></span> a <span id="destino"><?php echo $destino; ?></span>
@@ -90,6 +94,8 @@ while($item = $res->fetch_array())
     </tbody>
   </table>
   <form method="POST" action="php/insercionPasajeros.php">
+  	
+    <input type="hidden" id="extraAsiento" name="extraAsiento" value="test"> 
   	<?php 
   	for($i=1; $i<=$numPasajeros; $i++){ 
   		echo "<input type=\"hidden\" name=\"asientoName".$i."\" id=\"asientoName".$i."\">";
