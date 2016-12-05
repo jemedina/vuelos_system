@@ -85,7 +85,7 @@ $AERO_DESTINO=$destino;
                                 <div class="form-group">
                                     <label class="control-label" for="cardNumber">Número de tarjeta de crédito</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="tel" required="" placeholder="Ingrese no. de tarjeta de crédito" id="cardNumber">
+                                        <input class="form-control" type="tel" required="" placeholder="Ingrese no. de tarjeta de crédito" id="cardNumber" min="10" maxlength="12">
                                         <div class="input-group-addon"><span><span class="fa fa-credit-card"></span></span>
                                         </div>
                                     </div>
@@ -96,13 +96,13 @@ $AERO_DESTINO=$destino;
                             <div class="col-xs-7">
                                 <div class="form-group">
                                     <label class="control-label" for="cardExpiry"><span class="hidden-xs">Fecha de expiración</span><span class="visible-xs-inline">EXP </span></label>
-                                    <input class="form-control" type="tel" required="" placeholder="MM / AA" id="cardExpiry">
+                                    <input class="form-control" type="date" required="" placeholder="MM / AA" id="cardExpiry">
                                 </div>
                             </div>
                             <div class="col-xs-5 pull-right">
                                 <div class="form-group">
                                     <label class="control-label" for="cardCVC">cv code</label>
-                                    <input id="cvc" class="form-control" type="tel" required="" placeholder="CVC" id="cardCVC">
+                                    <input id="cvc" class="form-control" type="tel" required="" placeholder="CVC" id="cardCVC" maxlength="4" min="3">
                                 </div>
                             </div>
                         </div>
