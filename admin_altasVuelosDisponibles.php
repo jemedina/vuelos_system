@@ -43,9 +43,11 @@ if($redondo!=null){
 
 
 $id_vuelo=$_SESSION["id_nuevo_vuelo"];
+//die($id_vuelo);
 echo $id_vuelo."<br>";
 if(!isset($_POST["redondo"])) {
-$alta_vuelo_disponible="INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha_salida,fecha_llegada,precio) VALUES ('$id_vuelo','$hora_salida','$hora_llegada','$fecha_salida','$fecha_llegada','$costo_base')";
+$alta_vuelo_disponible="INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha_salida,fecha_llegada,precio) VALUES ('$id_vuelo','$hora_salida','$hora_llegada','$fecha_salida','$fecha_llegada','$costo_base');";
+    //die($alta_vuelo_disponible);
 } else {
 $alta_vuelo_disponible="INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora_salida,hore_llegada,fecha_salida,fecha_llegada,precio,hora_salida_redondo,hore_llegada_redondo,fecha_salida_redondo,fecha_llegada_redondo) VALUES ('$id_vuelo','$hora_salida','$hora_llegada','$fecha_salida','$fecha_llegada','$costo_base','$hora_salida_retorno','$hora_llegada_retorno','$fecha_salida_retorno','$fecha_llegada_retorno')";
 }	

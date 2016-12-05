@@ -1,4 +1,4 @@
-//
+
 <?php 
 	//Recolectar parametros de busqueda
 	include("php/DB.php");
@@ -16,13 +16,13 @@
 	$clase = $_POST["clase"];
 	if($tipoVuelo == "sencillo"){
 		$filter = "SELECT * FROM VUELOS_DISPONIBLES JOIN VUELOS_ESPECIFICOS on VUELOS_DISPONIBLES.id_vuelo_especifico = VUELOS_ESPECIFICOS.id WHERE VUELOS_DISPONIBLES.id_vuelo_especifico IN (SELECT VUELOS_ESPECIFICOS.id FROM VUELOS_ESPECIFICOS WHERE VUELOS_ESPECIFICOS.origen = $origen AND VUELOS_ESPECIFICOS.destino=$destino) AND VUELOS_DISPONIBLES.fecha_salida>='$partida' AND VUELOS_DISPONIBLES.fecha_salida_redondo IS NULL";
-		die($filter);
+		//die($filter);
 	}
 	else
 	{
-		$filter = "SELECT * FROM VUELOS_DISPONIBLES JOIN VUELOS_ESPECIFICOS on VUELOS_DISPONIBLES.id_vuelo_especifico = VUELOS_ESPECIFICOS.id WHERE VUELOS_ESPECIFICOS.id_vuelo_especifico IN (SELECT VUELOS_ESPECIFICOS.id FROM VUELOS_ESPECIFICOS WHERE VUELOS_ESPECIFICOS.origen = $origen AND VUELOS_ESPECIFICOS.destino=$destino) AND VUELOS_DISPONIBLES.fecha_salida>='$partida' AND VUELOS_DISPONIBLES.fecha_salida_redondo IS NOT NULL";
+		$filter = "SELECT * FROM VUELOS_DISPONIBLES JOIN VUELOS_ESPECIFICOS on VUELOS_DISPONIBLES.id_vuelo_especifico = VUELOS_ESPECIFICOS.id WHERE VUELOS_DISPONIBLES.id_vuelo_especifico IN (SELECT VUELOS_ESPECIFICOS.id FROM VUELOS_ESPECIFICOS WHERE VUELOS_ESPECIFICOS.origen = $origen AND VUELOS_ESPECIFICOS.destino=$destino) AND VUELOS_DISPONIBLES.fecha_salida>='$partida' AND VUELOS_DISPONIBLES.fecha_salida_redondo IS NOT NULL";
 	}
-	//die($filter1);
+	//die($filter);
 	$res = $db->query($filter);
 
 
@@ -45,7 +45,7 @@
 	<section id="searchResults" class="col-md-8 col-md-offset-2
 	col-sm-12">
 		<header class="raw text-center headerResults">
-			Resultados de busqueda para <?php echo $partida ?><br>(<?php echo $res->num_rows." resultados" ?>)
+		    Resultados de busqueda para <?php echo $partida ?><br>(<?php echo $res->num_rows." resultados" ?>)
 		</header>
 		<?php 
 		while($data = $res->fetch_array()) {
