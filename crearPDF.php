@@ -16,7 +16,7 @@ $pdf=new FPDF();
     //$resp=DB->query();
     $resp = $conn->query("select * from RESERVA where folio = $folio");
 
-if ($fila = $resp->fetch_row()) {
+    if ($fila = $resp->fetch_row()) {
 
     $id=$fila[1];//toma id de vuelo disponible
     $cliente=$fila[7];
@@ -76,7 +76,7 @@ if ($fila = $resp->fetch_row()) {
     $TomaAsientos = $conn->query("select * from DETALLE_ASIENTOS where id_titular ='$asientos' AND id_vuelo_disponible = '$id'");
     $texto2="";
     while($filaA=$TomaAsientos->fetch_row()){
-        $texto2=$texto2." ".$filaA[2].",";
+        $texto2=$texto2." ".$filaA[2]."  ";
     }
     $texto2="\nAsientos: ".$texto2;
     

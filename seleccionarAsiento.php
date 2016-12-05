@@ -1,4 +1,5 @@
 <?php 
+include("php/DB.php");
 $numPasajeros=$_POST["numPasajeros"];
 $costoBase=$_POST["costoBase"];
 $precio=$_POST["precio"];
@@ -33,8 +34,17 @@ $_SESSION["telefono"]=$telefono;
 $_SESSION["opcion"]=$metodoPago;
 $_SESSION["tipoVuelo"]=$tipoVuelo;
 $_SESSION["id_vuelo_disponible"]=$idVuelo;
+$_SESSION["origen"] = $origen;
+$_SESSION["destino"] = $destino;
 for($i=0; $i<$numPasajeros-1; $i++){ 
   $_SESSION["pasajero-".$i]=$arr[$i];
+}
+$db = new DB();
+$SQL_GET_ASIENTOS = "SELECT numero FROM detalle_asientos WHERE id_vuelo_disponible = ".$idVuelo;
+$res = $db->query($SQL_GET_ASIENTOS);
+while($item = $res->fetch_array())
+{
+	$asientosOcupados[]=$item["numero"];
 }
 ?>
 
@@ -129,7 +139,26 @@ for($i=0; $i<$numPasajeros-1; $i++){
 					<!--Se cargan los asientos aqui por js o php-->
 					<?php 
 					for($i = 1; $i <= 30 ; $i++) {
-						echo "<div class=\"item available\" onclick=\"selectOrUnselect(this)\" id=\"place".$i."\">".$i."</div>";
+						if(isset($asientosOcupados)){
+							$asientoOcupaso = false;
+							for($x=0;$x<count($asientosOcupados);$x++){
+								if($asientosOcupados[$x]==$i){
+									$status = "unavailable";
+									$event="";
+									$asientoOcupaso = true;
+									break;
+								}
+							}
+							if(!$asientoOcupaso) {
+								$event = "onclick=\"selectOrUnselect(this)\"";
+								$status="available";
+							}
+						}
+						else{
+							$status = "available";
+							$event = "onclick=\"selectOrUnselect(this)\"";
+						}
+						echo "<div class=\"item $status\" $event id=\"place".$i."\">".$i."</div>";
 					}
 					?>
 
@@ -137,8 +166,27 @@ for($i=0; $i<$numPasajeros-1; $i++){
 				<div id="asientosRight" class="asientos">
 					<!--Se cargan los asientos aqui por js o php-->
 					<?php 
-					for($i = 1; $i <= 30 ; $i++) {
-						echo "<div class=\"item available\" onclick=\"selectOrUnselect(this)\" id=\"place".$i."\">".$i."</div>";
+					for($i = 31; $i <= 60 ; $i++) {
+						if(isset($asientosOcupados)){
+							$asientoOcupaso = false;
+							for($x=0;$x<count($asientosOcupados);$x++){
+								if($asientosOcupados[$x]==$i){
+									$status = "unavailable";
+									$event="";
+									$asientoOcupaso = true;
+									break;
+								}
+							}
+							if(!$asientoOcupaso) {
+								$event = "onclick=\"selectOrUnselect(this)\"";
+								$status="available";
+							}
+						}
+						else{
+							$status = "available";
+							$event = "onclick=\"selectOrUnselect(this)\"";
+						}
+						echo "<div class=\"item $status\" $event id=\"place".$i."\">".$i."</div>";
 					}
 					?>
 				</div>	

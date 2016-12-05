@@ -16,8 +16,8 @@ for($i=0; $i<$numPasajeros-1; $i++){
   $arr[]=$_SESSION["pasajero-".$i];
 } 
 
-$origen=$_GET["origen"];
-$destino=$_GET["destino"];
+$origen=$_SESSION["origen"];
+$destino=$_SESSION["destino"];
 $costo=$_GET["costoBase"];
 $costoTotal=$_GET["total"];
 if($tipoVuelo == "redondo"){ 
@@ -67,9 +67,9 @@ $AERO_DESTINO=$destino;
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C:\Users\Jesus\Documents\Boostrap Studio\DetallesPago</title>
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/user.css">
-    <link rel="stylesheet" href="css/bootstrap/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="bootstrap/fonts/font-awesome.min.css">
 </head>
 
 <body>

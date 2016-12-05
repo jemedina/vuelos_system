@@ -1,0 +1,31 @@
+button.btn.btn-success.btn-lg{
+  margin-top:25px;
+}
+
+button.btn.btn-info.btn-lg{
+  margin-top:25px;
+}
+
+.credit-card-box .panel-title{
+  font-weight:bold;
+  overflow:hidden;
+}
+
+.credit-card-box .panel-title .panel-title-text{
+  max-width:80px;
+  float:left;
+}
+
+.credit-card-box .panel-title .panel-title-image{
+  max-width:160px;
+  float:right;
+}
+
+.credit-card-box label{
+  display:block;
+}
+
+.credit-card-box .panel-body .control-label{
+  text-transform:uppercase;
+}
+

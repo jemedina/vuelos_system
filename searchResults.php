@@ -14,7 +14,8 @@
 	$numPasajeros = $_POST["num_pasajeros"];
 	$tipoVuelo = $_POST["tipoVuelo"];
 	$clase = $_POST["clase"];	
-	$filter1 = "SELECT * FROM VUELOS_DISPONIBLES JOIN VUELOS_ESPECIFICOS WHERE VUELOS_ESPECIFICOS.origen = $origen AND VUELOS_ESPECIFICOS.destino=$destino;";
+	$filter1 = "SELECT * FROM vuelos_disponibles JOIN vuelos_especificos on vuelos_disponibles.id_vuelo_especifico = vuelos_especificos.id WHERE vuelos_disponibles.id_vuelo_especifico IN (SELECT vuelos_especificos.id FROM vuelos_especificos WHERE vuelos_especificos.origen = $origen AND vuelos_especificos.destino=$destino) AND vuelos_disponibles.fecha_salida>=sysdate()";
+	//die($filter1);
 	$res = $db->query($filter1);
 
 
