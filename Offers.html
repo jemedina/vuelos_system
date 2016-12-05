@@ -37,19 +37,19 @@
 <!--header -->
 	<header>
 		<div class="wrapper">
-			<h1><a href="index.php" id="logo">Air lines</a></h1>
+			<h1><a href="index.html" id="logo">Air lines</a></h1>
 			<span id="slogan">Fast, Frequent &amp; Safe Flights</span>
 			<nav id="top_nav">
 				<ul>
-					<li><a href="index.php" class="nav1">Home</a></li>
-					<li><a href="altasVuelos.php" class="nav2">Admin</a></li>
+					<li><a href="index.html" class="nav1">Home</a></li>
+					<li><a href="#" class="nav2">Admin</a></li>
 					<li><a href="Contacts.html" class="nav3">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
 		<nav>
 			<ul id="menu">
-                <li><a href="index.php"><span><span>Buscar Vuelos</span></span></a></li>
+                <li><a href="index.html"><span><span>Buscar Vuelos</span></span></a></li>
                 <li><a href="Offers.html"><span><span>Mi vuelo</span></span></a></li>
                 <li><a href="destinos.html"><span><span>Destinos</span></span></a></li>
                 <li class="end"><a href="Contacts.html"><span><span>contacto</span></span></a></li>
@@ -60,17 +60,17 @@
 <!--content -->
 	<section id="content">
 	    <div>
-            <form name="miVuelo" method="post" action="#">
+            <form name="miVuelo" method="post" action="php/consultarMiVuelo.php">
                 <div class="container recuadro">
                     <div class="row">
                         <div class="col-md-12">
                             <label class="texto">I<strong>ngrese No. de Folio del vuelo</strong></label>
                         </div>
-                        <div class="col-md-12">
-                            <input class="form-control barra" type="text" placeholder="Código de reservación" id="noFolio" required="true">
+                        <div class="col-md-9">
+                            <input class="form-control barra" type="text" placeholder="Folio de reservación" id="noFolio" name="noFolio"> 
                         </div>
-                        <div class="col-md-12">
-                            <button class="btn btn-success boton" type="button">Buscar</button>
+                        <div class="col-md-9">
+                            <input type="submit" value="Buscar" class="btn btn-success boton" style="margin-bottom:10px">
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@
     $llegadaRedondo = $_POST["partidaRedondo"];
     $horaPartidaRedondo = $_POST["horaPartidaRedondo"];
     $horaLlegadaRedondo = $_POST["horaLlegadaRedondo"];
-
+    $tipoVuelo = $_POST["tipoVuelo"];
     $origen = $_POST["origen"];
     $destino = $_POST["destino"];
 ?>    
@@ -59,7 +59,7 @@
                                     <label><strong>Nombre del titular</strong></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control" required="" type="text" id="nombreTitular" name="nombreTitular" required="true">
+                                    <input class="form-control" required="" type="text" id="nombreTitular" name="nombreTitular">
                                 </div>
                             </div>
                             <div class="row">
@@ -67,7 +67,7 @@
                                     <label class="lead"><strong>Email </strong></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control" required="true" type="email" id="email" name="email">
+                                    <input class="form-control" required="" type="text" id="email" name="email">
                                 </div>
                             </div>
                             <div class="row">
@@ -75,7 +75,7 @@
                                     <label class="lead"><strong>Teléfono </strong></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control" required="true" type="text" id="telefono" name="telefono">
+                                    <input class="form-control" required="" type="text" id="telefono" name="telefono">
                                 </div>
                             </div>
                             <div class="row">
@@ -83,7 +83,7 @@
                                     <label class="lead"><strong>Dirección </strong></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control" required="true" type="text" id="direccion" name="direccion">
+                                    <input class="form-control" required="" type="text" id="direccion" name="direccion">
                                 </div>
                             </div>
                         </div>
@@ -156,13 +156,13 @@
                 <input type="hidden" value="<?php echo $_POST["id_vuelo_disponible"]; ?>" id="id_vuelo" name="id_vuelo_disponible"> 
                 <input type="hidden" value="<?php echo $origen; ?>" name="origen"> 
                 <input type="hidden" value="<?php echo $destino; ?>" name="destino"> 
-                  
+                <input type="hidden" value="<?php echo $precio; ?>" name="precio">   
+                <input type="hidden" value="<?php echo $partidaRedondo; ?>" name="partidaRedondo">   
+                <input type="hidden" value="<?php echo $llegadaRedondo; ?>" name="llegadaRedondo"> 
+                <input type="hidden" value="<?php echo $horaPartidaRedondo; ?>" name="horaPartidaRedondo"> 
+                <input type="hidden" value="<?php echo $horaLlegadaRedondo; ?>" name="horaLlegadaRedondo"> 
                 <input type="submit" class="boton" value="Continuar"> 
-              
-        
-   
-   
-   
+               
    </div> 
    <div class="col-md-4"> 
    
@@ -189,7 +189,7 @@
                 </div>
             </div>
             <hr>
-            <?php if($partidaRedondo != "") { ?>
+            <?php if($tipoVuelo == "redondo") { ?>
             <div>
                 <div>
                     <p class="text-center lead"><strong><?php echo $partidaRedondo ?></strong></p>
