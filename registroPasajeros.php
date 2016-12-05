@@ -149,7 +149,7 @@
                     <?php
                     }
                     ?>
-                <input type="hidden" value="" id="<?php echo $_POST["costoBase"]?>" name="costoBase">    
+                <input type="hidden" value="<?php echo $_POST["costoBase"]?>" name="costoBase">    
                 <input type="hidden"  id="costoExtra" name="costoExtra">   
                 <input type="hidden" value="<?php echo $num_pasajeros; ?>" id="numPasajeros" name="numPasajeros">    
                 <input type="hidden" value="<?php echo $_POST["tipoVuelo"]; ?>" id="tipoVuelo" name="tipoVuelo">  
@@ -222,7 +222,7 @@
                         <label for="cardExpiry" class="lead">Costo x Pasajero</label>
                     </div>
                     <div class="col-md-7">
-                        <input id="costoxPasajero" class="input-lg lead" type="text" value="<?php echo $precio; ?>" readonly="">
+                        <input id="costoxPasajero" name="costoBase" class="input-lg lead" type="text" value="<?php echo $precio; ?>" readonly="">
                     </div>
                 </div>
                 <div class="row">
