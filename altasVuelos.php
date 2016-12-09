@@ -103,8 +103,8 @@ while($airport = mysqli_fetch_array($airports)) {
                             <div class="container-fluid">
                                 <h1 class="text-center">Consultar Clientes</h1>
                                 <form name="consulta_cliente" method="post" action="PDFClientes.php">
-                                    <label for="consulta_cliente">Nombre </label>
-                                    <input class="form-control" type="text" name="nombre" id="nombre">
+                                    <label for="consulta_cliente">Email </label>
+                                    <input class="form-control" type="email" name="nombre" id="nombre">
                                     <div class="text-center">
                                         <button class="btn btn-info btn-lg" type="submit">Consultar </button>
                                     </div>
@@ -123,10 +123,12 @@ while($airport = mysqli_fetch_array($airports)) {
                                     <div class="col-md-10">
                                         <input name="folio" id="folio" class="form-control" type="text">
                                     </div>
-                                </form>
-                                <div class="text-center">
-                                    <button class="btn btn-info btn-lg" type="button">Buscar </button>
+                                    
+                                    <div class="text-center">
+                                    <button class="btn btn-info btn-lg" type="submit">Buscar </button>
                                 </div>
+                                </form>
+                                
                             </div>
                         </div>
                     </div>

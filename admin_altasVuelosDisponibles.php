@@ -53,5 +53,5 @@ $alta_vuelo_disponible="INSERT INTO VUELOS_DISPONIBLES (id_vuelo_especifico,hora
 }	
 
 $resultado=$bd->query($alta_vuelo_disponible); 
-header("Location: altasVuelosDisponibles.html");
+header("Location: altasVuelosDisponibles.php");
 ?>

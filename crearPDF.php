@@ -10,6 +10,7 @@ $pdf=new FPDF();
     $bd="VUELOS_DB";
     
     $folio=$_GET['folio'];
+   // $tipoVuelo=$_GET['tipoVuelo'];
     $conn=new DB();
     //include("DB.php");
     //$db=new DB();
@@ -20,6 +21,7 @@ $pdf=new FPDF();
 
     $id=$fila[1];//toma id de vuelo disponible
     $cliente=$fila[7];
+    $tipoVuelo=$fila[3];    
     $cliente = $conn->query("select titular from CLIENTES where id = $cliente")->fetch_row()[0];
     $asientos=$fila[7];//tomar id del cliente
     
@@ -66,11 +68,11 @@ $pdf=new FPDF();
     }
     ##echo "<br>Contraseña: ".$fila[1];
     $costo=$fila[4];
-    
-    if($fecha_s_r != null){
+    //fecha_s_r !=null
+    if($tipoVuelo=="redondo"){
         $texto="Folio: ".$folio."\nCliente: ".$cliente."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscalas en: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nRegreso:\nFecha salida: ".$fecha_s_r."\nFecha LLegada: ".$fecha_v_r."\nHora salida: ".$hora_s_r."\nHora LLegada: ".$hora_v_r."\nTotal: ".$costo;
     }else{
-        $texto="Folio: ".$folio."\nCliente: ".$cliente."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscala: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v."\nTotal: ".$costo;
+        $texto="Folio: ".$folio."\nCliente: ".$cliente."\nNumero de pasajeros: ".$fila[2]."\nTipo de vuelo: ".$fila[3]."\nTotal: ".$costo."\nMetodo de pago: ".$fila[6]."\nOrigen: ".$origen."\nDestino: ".$destino."\nEscala: ".$escala."\nFecha salida: ".$fecha_s."\nFecha LLegada: ".$fecha_v."\nHora salida: ".$hora_s."\nHora LLegada: ".$hora_v; 
 
     }
     $TomaAsientos = $conn->query("select * from DETALLE_ASIENTOS where id_titular ='$asientos' AND id_vuelo_disponible = '$id'");

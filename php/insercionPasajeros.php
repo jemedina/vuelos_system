@@ -35,12 +35,12 @@ for($i=1; $i<($numPasajeros+1); $i++)
     $INSERT_TITULAR= "INSERT INTO CLIENTES (id,email,telefono,domicilio,titular) VALUES (NULL,'$email','$telefono','$direccion','$nombreTitular')";
     $insercionTitular = $db->query($INSERT_TITULAR);
     
-    $SACAR_ID_CLIENTE= "SELECT id FROM CLIENTES WHERE titular='$nombreTitular'"; 
+    $SACAR_ID_CLIENTE= "SELECT id FROM CLIENTES ORDER BY id DESC LIMIT 1"; 
     $consultaID = $db->query($SACAR_ID_CLIENTE);
     $id = mysqli_fetch_array($consultaID)["id"];  
     if( $metodoPago=="pago en sucursal" ) { 
     
-    $RESERVAR = "INSERT INTO RESERVA (folio,id_vuelo_disponible,nro_pasajeros,tipo_vuelo,costo, costo_extra, metodo_pago, id_cliente) VALUES (NULL,'$idVuelo','$numPasajeros','$tipoVuelo','".($total-$costoExtra)+($costoAsientos)."','$costoExtra','$metodoPago','$id');";
+    $RESERVAR = "INSERT INTO RESERVA (folio,id_vuelo_disponible,nro_pasajeros,tipo_vuelo,costo, costo_extra, metodo_pago, id_cliente) VALUES (NULL,'$idVuelo','$numPasajeros','$tipoVuelo','".(($total)+($costoAsientos))."','$costoExtra','$metodoPago','$id');";
     $res = $db->query($RESERVAR);
     $SACAR_FOLIO= "SELECT folio FROM RESERVA WHERE id_cliente=$id order by folio desc"; 
     echo "<br>".$SACAR_FOLIO;
@@ -65,8 +65,13 @@ for($i=1; $i<($numPasajeros+1); $i++)
     }else{ 
         
     $costoAgregado=$costoBase+$costoAsientos;     
-    
-    header("Location: ../DetallesPagos.php?costoBase=$costoAgregado&total=$total&tipoVuelo=$tipoVuelo&id_vuelo_disponible=$idVuelo");  
+    $nuevoTotal=$total+$costoAsientos; 
+        
+    for($i=1; $i<($numPasajeros+1); $i++)
+    {
+    $_SESSION["asientos-".$i] = $asientos[$i-1];
+     }
+    header("Location: ../DetallesPagos.php?costoBase=$costoAgregado&total=$nuevoTotal&tipoVuelo=$tipoVuelo&id_vuelo_disponible=$idVuelo");  
         
     
     
