@@ -16,16 +16,31 @@ for($i=0; $i<$numPasajeros-1; $i++){
   $arr[]=$_SESSION["pasajero-".$i];
 } 
 
+for($i=1; $i<($numPasajeros+1); $i++)
+{
+    $asientos[] = $_SESSION["asientos-".$i];
+}
+
+
 $origen=$_SESSION["origen"];
 $destino=$_SESSION["destino"];
 $costo=$_GET["costoBase"];
 $costoTotal=$_GET["total"];
-if($tipoVuelo == "redondo"){ 
+$_SESSION["nuevoTotal"]=$costoTotal; 
+for($j=1; $j<($numPasajeros+1); $j++)
+{
+    $_SESSION["infoAsientos-".$j] = $asientos[$j-1]; 
+}
+
+/*if($tipoVuelo == "redondo"){ 
+echo "redondo";    
 $partidaRedondo=$_GET["partidaRedondo"];
 $llegadaRedondo=$_GET["llegadaRedondo"];
 $horaPartidaRedondo=$_GET["horaPartidaRedondo"];
 $horaLlegadaRedondo=$_GET["horaLlegadaRedondo"];
-}
+     
+}*/ 
+
 
 $db = new DB(); 
 $SACAR_VUELO_DISPONIBLE= "SELECT * FROM VUELOS_DISPONIBLES WHERE id='$idVuelo'"; 
@@ -37,7 +52,15 @@ $SACAR_VUELO_DISPONIBLE= "SELECT * FROM VUELOS_DISPONIBLES WHERE id='$idVuelo'";
     $hora_salida = $vuelo['hora_salida'];
     $hora_llegada = $vuelo['hore_llegada'];
     $fecha_salida = $vuelo['fecha_salida'];
-    $fecha_llegada = $vuelo['fecha_llegada'];
+    $fecha_llegada = $vuelo['fecha_llegada']; 
+if($tipoVuelo == "redondo"){ 
+   
+   $horaPartidaRedondo = $vuelo['hora_salida_redondo'];
+   $horaLlegadaRedondo = $vuelo['hore_llegada_redondo'];
+   $partidaRedondo = $vuelo['fecha_salida_redondo'];
+   $llegadaRedondo = $vuelo['fecha_llegada_redondo']; 
+   
+}
    
 /*$SACAR_VUELO_ESPECIFICO= "SELECT * FROM VUELOS_ESPECIFICOS WHERE id='$id_vuelo_especifico'"; 
 $consulta2 = $db->query($SACAR_VUELO_ESPECIFICO); 

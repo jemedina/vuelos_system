@@ -4,5 +4,5 @@
 	$aereopuerto=$_POST["destino"];
 	$consulta="INSERT INTO AEREOPUERTOS (nombre) VALUES ('$aereopuerto')";
 	$bd->query($consulta);
-	header("Location: altasVuelos.html")
+	header("Location: altasVuelos.php")
 ?>

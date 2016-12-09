@@ -127,11 +127,11 @@
 													</div>
 												</div>
 												<div class="wrapper under">
-													<label for="partida">partida</label>
+													<label for="partida">Fecha de partida</label>
 													<input type="date" required name="partida" id="partida">
 													<br>
 													<br>
-													<label for="venida">venida</label>
+													<label for="venida">Fecha de regreso</label>
 													<input type="date" name="llegada" id="venida">
 												</div>
 												<div class="wrapper pad_bot1">
